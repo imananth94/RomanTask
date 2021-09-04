@@ -14,6 +14,7 @@ export class RomanConversionComponent implements OnInit {
   inputNumber: any; result: any; hideResult = true; error_message = '';
   inputType = 'number';
   label = 'number';
+
   constructor(private helperService: HelperService) { }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class RomanConversionComponent implements OnInit {
       this.inputType = 'number';
       this.label = 'number';
     }
-    console.log(this.title)
+   
   }
 
   convert() {
@@ -54,16 +55,13 @@ export class RomanConversionComponent implements OnInit {
         else {
           this.error_message = '';
           this.result = this.helperService.numberToRoman(this.inputNumber);
-          console.log(this.result);
           this.hideResult = false;
         }
       }
       else {
         this.error_message = '';
         let res = this.helperService.romanToNumber(this.inputNumber);
-        console.log(res)
         if (res == 0) {
-          console.log('ashdddd')
           this.error_message = 'Please enter a valid roman number';
         }
         else {
@@ -80,6 +78,6 @@ export class RomanConversionComponent implements OnInit {
     this.error_message = '';
   }
 
-  
+
 
 }
