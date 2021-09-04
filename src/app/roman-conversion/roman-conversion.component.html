@@ -1,0 +1,27 @@
+<div class="parent">
+
+    <p class="text_center title"> <span> {{title}} </span>
+        <mat-icon inline class="switch_icon" (click)='switch_coversion_type()' #tooltip="matTooltip"  matTooltip='Switch Conversion Type'>change_circle</mat-icon>
+    </p>
+ 
+    <p class="text_center">
+        <mat-form-field appearance="outline">
+            <mat-label>Enter a {{label}}</mat-label>
+            <input matInput type="{{inputType}}" [(ngModel)]='inputNumber' placeholder="{{hint}}" (focus)='hide_result()'>
+        </mat-form-field>
+    </p>
+    <p class="text_center">
+        <button mat-raised-button class="button_c" (click)='convert()' [disabled]='!inputNumber' >Convert </button>
+    </p>
+    <p class="text_center answer" *ngIf='!hideResult'>
+      <span>  Answer : </span>  <span class="result"> {{result }} </span>  
+        <br> <br>
+        <img class="gif" src='assets\img\success.gif'> 
+    </p>
+
+    <p class="text_center error" *ngIf='error_message'>
+        {{error_message }}
+        <br> <br>
+        <img class="gif" src='assets\img\failure.gif'> 
+    </p>
+</div>
